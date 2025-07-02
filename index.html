@@ -76,6 +76,13 @@
             margin-bottom: 20px;
         }
 
+        .menu-column h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.0em; /* Slightly smaller than main h1 */
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
         .menu {
             list-style: none;
             padding: 0;
@@ -132,30 +139,39 @@
         .payment-info {
             font-size: 0.85em; /* Smaller for payment info */
             color: #666;
-            margin-top: 20px;
+            margin-top: 2px; /* Further reduced spacing between lines */
         }
 
         /* Media Query for Desktop Layout (two columns) */
         @media (min-width: 768px) {
             .content-columns {
+                display: flex; /* Ensure it's a flex container */
                 flex-direction: row; /* Arrange in rows for desktop */
                 text-align: left;
+                align-items: flex-start; /* Align children to the top */
             }
 
-            .menu {
+            .menu-column {
                 flex: 2; /* Menu takes more space */
+                height: 100%; /* Explicitly set height to 100% of parent */
+                text-align: center; /* Center content horizontally */
             }
 
             .info-sections-wrapper {
                 flex: 1; /* Info sections take less space */
                 padding-left: 30px; /* Add space between menu and info */
                 border-left: 1px solid rgba(0,0,0,0.05); /* Divider line */
+                height: 100%; /* Explicitly set height to 100% of parent */
+                margin-top: 30px; /* Add top margin to move it down */
             }
 
             .info-section {
                 margin-top: 0;
                 padding-top: 0;
                 border-top: none;
+                flex-grow: 1; /* Allow info sections to grow and fill available space */
+                display: flex; /* Make info-section a flex container */
+                flex-direction: column; /* Stack content vertically */
             }
         }
 
@@ -175,6 +191,7 @@
             }
             .subtitle {
                 font-size: 0.9em;
+                margin-bottom: 15px; /* Reduced margin for mobile */
             }
             .menu .item, .menu .price {
                 font-size: 1.0em;
@@ -187,6 +204,11 @@
             }
             .payment-info {
                 font-size: 0.8em;
+            }
+
+            .menu-column h2 {
+                text-align: center;
+                margin-bottom: 5px; /* Move title up on mobile */
             }
 
             .info-sections-wrapper {
@@ -212,9 +234,10 @@
     <div class="container">
         <h2 class="fancy-title">Fresh Lemonade</h2>
         <p class="subtitle">Don't be afraid, we have lemonade!</p>
-        <h1>Our Menu</h1>
         <div class="content-columns">
-            <ul class="menu">
+            <div class="menu-column">
+                <h2>Our Menu</h2>
+                <ul class="menu">
                 <li>
                     <span class="item">🍋 Classic Lemonade</span>
                     <span class="price">$1.00</span>
@@ -242,6 +265,7 @@
                     <span class="price">$2.00</span>
                 </li>
             </ul>
+            </div>
 
             <div class="info-sections-wrapper">
                 <div class="info-section">
