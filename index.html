@@ -53,6 +53,7 @@
             display: flex;
             flex-direction: column;
             gap: 20px;
+            justify-content: center; /* Vertically center content */
         }
 
         .fancy-title {
@@ -76,9 +77,17 @@
             margin-bottom: 20px;
         }
 
+        .menu-column h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.0em; /* Slightly smaller than main h1 */
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
         .menu {
             list-style: none;
             padding: 0;
+            margin: 0; /* Ensure no default margin interferes with height */
             text-align: left;
             width: 100%;
         }
@@ -138,24 +147,32 @@
         /* Media Query for Desktop Layout (two columns) */
         @media (min-width: 768px) {
             .content-columns {
+                display: flex; /* Ensure it's a flex container */
                 flex-direction: row; /* Arrange in rows for desktop */
                 text-align: left;
+                align-items: stretch; /* Make children stretch to fill height */
             }
 
-            .menu {
+            .menu-column {
                 flex: 2; /* Menu takes more space */
+                height: 100%; /* Explicitly set height to 100% of parent */
             }
 
             .info-sections-wrapper {
                 flex: 1; /* Info sections take less space */
                 padding-left: 30px; /* Add space between menu and info */
                 border-left: 1px solid rgba(0,0,0,0.05); /* Divider line */
+                height: 100%; /* Explicitly set height to 100% of parent */
             }
 
             .info-section {
                 margin-top: 0;
                 padding-top: 0;
                 border-top: none;
+                flex-grow: 1; /* Allow info sections to grow and fill available space */
+                display: flex; /* Make info-section a flex container */
+                flex-direction: column; /* Stack content vertically */
+                justify-content: center; /* Center content vertically within each info section */
             }
         }
 
@@ -212,9 +229,10 @@
     <div class="container">
         <h2 class="fancy-title">Fresh Lemonade</h2>
         <p class="subtitle">Don't be afraid, we have lemonade!</p>
-        <h1>Our Menu</h1>
         <div class="content-columns">
-            <ul class="menu">
+            <div class="menu-column">
+                <h2>Our Menu</h2>
+                <ul class="menu">
                 <li>
                     <span class="item">🍋 Classic Lemonade</span>
                     <span class="price">$1.00</span>
@@ -242,6 +260,7 @@
                     <span class="price">$2.00</span>
                 </li>
             </ul>
+            </div>
 
             <div class="info-sections-wrapper">
                 <div class="info-section">
