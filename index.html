@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lemonade Stand</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Open+Sans&family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%; /* Ensure html and body take full height */
+        }
+
+        body {
+            /* This creates the gradient */
+            background-image: linear-gradient(to right, #ffdde1, #fff4b0);
+
+            /* --- Style Recommendations --- */
+
+            /* Ensures the gradient covers the whole page */
+            min-height: 100vh;
+
+            /* Font styling for better readability on the pastel background */
+            font-family: 'Open Sans', sans-serif;
+            color: #333; /* A dark gray is softer than pure black */
+            font-size: 16px; /* Base font size */
+            padding: 40px; /* Adds space around the card */
+            box-sizing: border-box;
+        }
+
+        .container {
+            max-width: 900px; /* Increased width for two columns */
+            margin: 0 auto; /* Centers the card horizontally */
+            background-color: rgba(255, 255, 255, 0.75);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+        }
+
+        .content-columns {
+            display: flex;
+            flex-direction: column; /* Default to column for mobile */
+            gap: 30px;
+        }
+
+        .info-sections-wrapper {
+            /* This wrapper helps group Location & Hours and Delivery */
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .fancy-title {
+            font-family: 'Dancing Script', cursive;
+            color: #228B22; /* Forest Green */
+            font-size: 3.8em; /* Slightly larger */
+            margin-bottom: 0;
+            text-shadow: 0 0 1px #228B22; /* This adds the subtle bolding effect */
+        }
+
+        .subtitle {
+            color: #FF7F50; /* Coral */
+            font-size: 1.0em; /* Slightly smaller */
+            margin-top: 5px;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5em; /* Main heading size */
+            margin-bottom: 20px;
+        }
+
+        .menu {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+            width: 100%;
+        }
+
+        .menu li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center; /* Vertically center items */
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .menu li:last-child {
+            border-bottom: none;
+        }
+
+        .menu .item {
+            font-weight: bold;
+            font-size: 1.1em; /* Slightly larger for menu items */
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* Left-align content within the item */
+        }
+
+        .menu .price {
+            color: #555;
+            font-size: 1.1em; /* Match menu item size */
+        }
+
+        .refill-info {
+            font-size: 0.75em; /* Smaller for secondary info */
+            font-weight: normal;
+            color: #666;
+            margin-top: 0; /* Remove top margin */
+            padding-left: 1.5em; /* Increased to align with text after emoji */
+        }
+
+        .info-section {
+            margin-top: 0; /* Reset margin for flex layout */
+            padding-top: 0; /* Reset padding for flex layout */
+            border-top: none; /* Reset border for flex layout */
+            text-align: left; /* Align text left within info sections */
+        }
+
+        .info-section h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.2em; /* Even smaller sub-heading size */
+            margin-bottom: 10px;
+        }
+
+        .payment-info {
+            font-size: 0.85em; /* Smaller for payment info */
+            color: #666;
+            margin-top: 20px;
+        }
+
+        /* Media Query for Desktop Layout (two columns) */
+        @media (min-width: 768px) {
+            .content-columns {
+                flex-direction: row; /* Arrange in rows for desktop */
+                text-align: left;
+            }
+
+            .menu {
+                flex: 2; /* Menu takes more space */
+            }
+
+            .info-sections-wrapper {
+                flex: 1; /* Info sections take less space */
+                padding-left: 30px; /* Add space between menu and info */
+                border-left: 1px solid rgba(0,0,0,0.05); /* Divider line */
+            }
+
+            .info-section {
+                margin-top: 0;
+                padding-top: 0;
+                border-top: none;
+            }
+        }
+
+        /* Media Query for Mobile Responsiveness */
+        @media (max-width: 600px) {
+            body {
+                padding: 20px;
+            }
+            .container {
+                padding: 25px;
+            }
+            .fancy-title {
+                font-size: 2.8em;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+            .subtitle {
+                font-size: 0.9em;
+            }
+            .menu .item, .menu .price {
+                font-size: 1.0em;
+            }
+            .refill-info {
+                font-size: 0.7em;
+            }
+            .info-section h2 {
+                font-size: 1.1em; /* Even smaller on mobile */
+            }
+            .payment-info {
+                font-size: 0.8em;
+            }
+
+            .info-sections-wrapper {
+                flex-direction: row; /* Arrange in rows for mobile */
+                justify-content: space-around; /* Distribute space evenly */
+                text-align: center; /* Center text within each info section */
+                gap: 10px; /* Smaller gap for mobile */
+            }
+
+            .info-section {
+                flex: 1; /* Each section takes equal space */
+                padding: 10px 0; /* Add some vertical padding */
+            }
+
+            .info-section:first-child {
+                border-right: 1px solid rgba(0,0,0,0.05); /* Add a divider between them */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2 class="fancy-title">Fresh Lemonade</h2>
+        <p class="subtitle">Don't be afraid, we have lemonade!</p>
+        <h1>Our Menu</h1>
+        <div class="content-columns">
+            <ul class="menu">
+                <li>
+                    <span class="item">🍋 Classic Lemonade</span>
+                    <span class="price">$1.00</span>
+                </li>
+                <li>
+                    <span class="item">🍓 Raspberry Lemonade</span>
+                    <span class="price">$1.50</span>
+                </li>
+                <li>
+                    <span class="item">🌿 Mint Lemonade</span>
+                    <span class="price">$1.50</span>
+                </li>
+                <li>
+                    <span class="item">🍧 Snow Cones
+                        <small class="refill-info">Refills: $2.00</small>
+                    </span>
+                    <span class="price">$3.00</span>
+                </li>
+                <li>
+                    <span class="item">🍦 Popsicles</span>
+                    <span class="price">$2.00</span>
+                </li>
+                <li>
+                    <span class="item">🍪 Cookies</span>
+                    <span class="price">$2.00</span>
+                </li>
+            </ul>
+
+            <div class="info-sections-wrapper">
+                <div class="info-section">
+                    <h2>Location & Hours</h2>
+                    <p class="payment-info">📍 123 Lemon Lane, Your Town, USA</p>
+                    <p class="payment-info">⏰ Sat & Sun, 12pm - 4pm (Weather permitting)</p>
+                    <p class="payment-info">We accept cash and Apple Pay.</p>
+                </div>
+
+                <div class="info-section">
+                    <h2>Delivery</h2>
+                    <p class="payment-info">📞 Call <a href="tel:123-456-7890">123-456-7890</a> for local delivery!</p>
+                    <p class="payment-info">💵 Cash only on delivery.</p>
+                    <p class="payment-info">🚫 Snow cones cannot be delivered!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
