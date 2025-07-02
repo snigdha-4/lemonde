@@ -55,6 +55,21 @@
             gap: 20px;
         }
 
+        .fancy-title-wrapper {
+            position: relative;
+            display: inline-block; /* To wrap around the content */
+        }
+
+        .fancy-title-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Cover the entire area */
+            z-index: -1; /* Place behind the text */
+        }
+
         .fancy-title {
             font-family: 'Dancing Script', cursive;
             font-size: 4.5em; /* Increased font size */
@@ -65,6 +80,8 @@
             -webkit-text-fill-color: transparent;
             color: transparent; /* Fallback for non-webkit browsers */
             font-weight: 700; /* Add more weight */
+            position: relative; /* Ensure text is above the image */
+            z-index: 1; /* Ensure text is above the image */
         }
 
         .subtitle {
@@ -262,7 +279,10 @@
 <body>
 
     <div class="container">
-        <h2 class="fancy-title">Fresh Lemonade</h2>
+        <div class="fancy-title-wrapper">
+            <img src="gradient.png" alt="Background Gradient" class="fancy-title-bg">
+            <h2 class="fancy-title">Fresh Lemonade</h2>
+        </div>
         <p class="subtitle">Don't be afraid, we have lemonade!</p>
         <div class="content-columns">
             <div class="menu-column">
