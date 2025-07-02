@@ -57,13 +57,14 @@
 
         .fancy-title {
             font-family: 'Dancing Script', cursive;
-            font-size: 3.8em; /* Slightly larger */
+            font-size: 4.5em; /* Increased font size */
             margin-bottom: 0;
             text-shadow: 0 0 1px rgba(0,0,0,0.2); /* Softer shadow for gradient */
             background: linear-gradient(to right, #00FFFF, #FF00FF, #FFFF00); /* Electric Blue to Bright Pink to Vibrant Yellow */
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             color: transparent; /* Fallback for non-webkit browsers */
+            font-weight: 700; /* Add more weight */
         }
 
         .subtitle {
@@ -112,8 +113,9 @@
         }
 
         .menu .item {
-            font-weight: bold;
-            font-size: 1.1em; /* Slightly larger for menu items */
+            font-weight: normal; /* Reduced weight */
+            font-size: 1.0em; /* Slightly smaller */
+            color: #555; /* Soft gray to blend in */
             display: flex;
             flex-direction: column;
             align-items: flex-start; /* Left-align content within the item */
@@ -211,7 +213,7 @@
                 padding: 25px;
             }
             .fancy-title {
-                font-size: 2.8em;
+                font-size: 3.2em; /* Increased font size for mobile */
                 color: #228B22; /* Fallback color for mobile */
             }
             h1 {
