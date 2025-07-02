@@ -27,17 +27,13 @@
             font-family: 'Open Sans', sans-serif;
             color: #333; /* A dark gray is softer than pure black */
             font-size: 16px; /* Base font size */
-            /* Removed padding: 40px; */
+            padding: 40px; /* Adds space around the card */
             box-sizing: border-box;
-
-            display: flex;
-            justify-content: center; /* Horizontally center the card */
-            align-items: center; /* Vertically center the card */
         }
 
         .container {
             max-width: 900px; /* Increased width for two columns */
-            /* Removed margin: 0 auto; */
+            margin: 0 auto; /* Centers the card horizontally */
             background-color: rgba(255, 255, 255, 0.75);
             padding: 40px;
             border-radius: 15px;
@@ -61,14 +57,17 @@
 
         .fancy-title {
             font-family: 'Dancing Script', cursive;
-            color: #228B22; /* Forest Green */
             font-size: 3.8em; /* Slightly larger */
             margin-bottom: 0;
-            text-shadow: 0 0 1px #228B22; /* This adds the subtle bolding effect */
+            text-shadow: 0 0 1px rgba(0,0,0,0.2); /* Softer shadow for gradient */
+            background: linear-gradient(to right, #00FFFF, #FF00FF, #FFFF00); /* Electric Blue to Bright Pink to Vibrant Yellow */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent; /* Fallback for non-webkit browsers */
         }
 
         .subtitle {
-            color: #FF7F50; /* Coral */
+            color: #FF6600; /* Vibrant Orange for slogan */
             font-size: 1.0em; /* Slightly smaller */
             margin-top: 5px;
             margin-bottom: 30px;
@@ -80,11 +79,17 @@
             margin-bottom: 20px;
         }
 
-        .menu-column h2 {
+        .menu-column h2,
+        .info-section h2 {
             font-family: 'Poppins', sans-serif;
-            font-size: 2.0em; /* Slightly smaller than main h1 */
+            font-size: 1.8em; /* Slightly smaller for better hierarchy */
             margin-bottom: 20px;
             text-align: left;
+            background: linear-gradient(to right, #FF69B4, #8A2BE2); /* Hot Pink to Blue Violet gradient */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent; /* Fallback */
+            text-shadow: 0 0 1px rgba(0,0,0,0.1); /* Subtle shadow for readability */
         }
 
         .menu {
@@ -115,7 +120,7 @@
         }
 
         .menu .price {
-            color: #555;
+            color: #FF8C00; /* Dark Orange for prices */
             font-size: 1.1em; /* Match menu item size */
         }
 
@@ -142,12 +147,22 @@
 
         .payment-info {
             font-size: 0.85em; /* Smaller for payment info */
-            color: #666;
+            color: #8B4513; /* Soft brown */
             margin-top: 2px; /* Further reduced spacing between lines */
         }
 
         /* Media Query for Desktop Layout (two columns) */
         @media (min-width: 768px) {
+            body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .container {
+                margin: 0 auto;
+            }
+
             .content-columns {
                 display: flex; /* Ensure it's a flex container */
                 flex-direction: row; /* Arrange in rows for desktop */
@@ -177,6 +192,14 @@
                 display: flex; /* Make info-section a flex container */
                 flex-direction: column; /* Stack content vertically */
             }
+
+            .menu-column h2 {
+                font-size: 1.8em; /* Keep menu title larger on desktop */
+            }
+
+            .info-section h2 {
+                font-size: 1.2em; /* Make info section titles smaller on desktop */
+            }
         }
 
         /* Media Query for Mobile Responsiveness */
@@ -189,6 +212,7 @@
             }
             .fancy-title {
                 font-size: 2.8em;
+                color: #228B22; /* Fallback color for mobile */
             }
             h1 {
                 font-size: 1.8em;
